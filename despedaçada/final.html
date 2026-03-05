@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+<title>Aventura no Livro</title>
+
+<link rel="stylesheet" href="final.css">
+
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+
+</head>
+
+<body>
+
+<!-- MENU PERSONALIZAÇÃO -->
+
+<div id="customMenu">
+
+<h1>Personalizar Mão</h1>
+
+<label>Tipo de Mão</label>
+<select id="handType">
+<option value="normal">Normal</option>
+<option value="ice">Mão de Gelo ❄</option>
+</select>
+
+<label>Cor</label>
+<input type="color" id="handColor" value="#00ffff">
+
+<label>Tamanho</label>
+<input type="range" id="handSize" min="20" max="80" value="30">
+
+<button id="startBtn">Iniciar</button>
+
+</div>
+
+<div id="site">
+
+<div class="container">
+
+<video class="input_video" autoplay playsinline></video>
+
+<canvas class="output_canvas"></canvas>
+
+<div class="loading">
+<div class="spinner"></div>
+<div class="message">Carregando...</div>
+</div>
+
+</div>
+
+</div>
+
+<div id="cursor"></div>
+
+<!-- LIVRO -->
+
+<div id="book">
+
+<div class="page active">
+<h1>Capítulo 1</h1>
+<p>Você encontra um livro antigo em uma biblioteca congelada.</p>
+</div>
+
+<div class="page">
+<h1>Capítulo 2</h1>
+<p>O livro começa a brilhar quando você aproxima a mão.</p>
+</div>
+
+<div class="page">
+<h1>Capítulo 3</h1>
+<p>Uma aventura começa dentro das páginas mágicas.</p>
+</div>
+
+</div>
+
+<div id="nextPageBtn">➡</div>
+
+<!-- GELO -->
+
+<div id="iceScreen">
+
+<canvas id="crackCanvas"></canvas>
+
+<div id="iceText">
+❄ Tela Congelada ❄<br>
+Quebre o gelo para iniciar
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

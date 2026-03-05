@@ -1,0 +1,230 @@
+body{
+margin:0;
+overflow:hidden;
+font-family:Arial;
+background:#1c1c1c;
+color:white;
+}
+
+#site{
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+.container{
+position:relative;
+width:1280px;
+height:720px;
+margin:auto;
+background:#596e73;
+}
+
+.input_video{
+position:absolute;
+width:1280px;
+height:720px;
+transform: scale(-1,1);
+}
+
+.output_canvas{
+position:absolute;
+top:0;
+left:0;
+transform: scale(-1,1);
+}
+
+.loading{
+position:absolute;
+top:0;
+left:0;
+right:0;
+bottom:0;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+background:#000;
+color:white;
+}
+
+.spinner{
+width:100px;
+height:100px;
+border:20px solid #ccc;
+border-top:20px solid #3498db;
+border-radius:50%;
+animation:spin 1s linear infinite;
+margin-bottom:20px;
+}
+
+@keyframes spin{
+0%{transform:rotate(0)}
+100%{transform:rotate(360deg)}
+}
+
+/* CURSOR */
+
+#cursor{
+position:fixed;
+width:30px;
+height:30px;
+border-radius:50%;
+background:radial-gradient(circle,cyan,transparent);
+pointer-events:none;
+transform:translate(-50%,-50%);
+z-index:20;
+box-shadow:
+0 0 10px cyan,
+0 0 20px cyan,
+0 0 40px cyan;
+}
+
+/* LIVRO */
+
+#book{
+position:fixed;
+bottom:40px;
+left:50%;
+transform:translateX(-50%);
+width:600px;
+height:300px;
+perspective:2000px;
+z-index:10;
+}
+
+.page{
+position:absolute;
+width:100%;
+height:100%;
+background:#f5e6c8;
+color:#3b2a15;
+padding:30px;
+border-radius:10px;
+font-family:serif;
+transform-origin:left;
+transition:transform 0.8s;
+backface-visibility:hidden;
+display:none;
+}
+
+.page.active{
+display:block;
+}
+
+.page.hidden{
+transform:rotateY(-180deg);
+}
+
+/* GELO */
+
+#iceScreen{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+backdrop-filter:blur(8px);
+background:linear-gradient(rgba(200,230,255,0.6),rgba(150,200,255,0.7));
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+cursor:pointer;
+z-index:999;
+}
+
+#iceText{
+font-size:30px;
+text-align:center;
+}
+
+#crackCanvas{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+pointer-events:none;
+}
+
+/* BOTÃO VIRAR PAGINA */
+
+#nextPageBtn{
+position:fixed;
+right:30px;
+top:50%;
+transform:translateY(-50%);
+width:120px;
+height:120px;
+background:rgba(0,0,0,0.6);
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:50px;
+color:white;
+cursor:pointer;
+z-index:15;
+transition:0.25s;
+}
+
+#nextPageBtn:hover{
+background:rgba(0,0,0,0.9);
+transform:translateY(-50%) scale(1.1);
+}
+
+/* MENU PERSONALIZAÇÃO */
+
+#customMenu{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:linear-gradient(#000428,#004e92);
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+gap:20px;
+z-index:2000;
+}
+
+#customMenu h1{
+font-size:40px;
+}
+
+#customMenu select,
+#customMenu input{
+width:200px;
+padding:8px;
+}
+
+#startBtn{
+padding:15px 40px;
+font-size:20px;
+border:none;
+border-radius:10px;
+background:cyan;
+cursor:pointer;
+}
+
+#startBtn:hover{
+transform:scale(1.1);
+}
+
+
+/* ANIMAÇÃO DE ABRIR LIVRO */
+
+#book{
+opacity:0;
+transform:translateX(-50%) scale(0.6);
+transition:1s;
+}
+
+#book.show{
+opacity:1;
+transform:translateX(-50%) scale(1);
+}
